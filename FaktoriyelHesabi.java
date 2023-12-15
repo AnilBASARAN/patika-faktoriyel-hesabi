@@ -1,18 +1,39 @@
 import java.util.Scanner;
 public class FaktoriyelHesabi {
     public static void main(String[] args) {
-        int number;
+        int numberN,numberR;
         Scanner input = new Scanner(System.in);
 
-        // faktoriyelin hesaplanması için 1 den verilen sayıya kadar 1 arttırarak faktor
-        // değişkenine hepsinin çarpımının toplamına eşitleyerek çıktı veriyoruz.
+        System.out.println("Kombinasyon N'in R li Kombinasyonları hesabı için: ");
 
-        System.out.print("Faktoriyelinin hesaplanması için bir sayı giriniz: ");
-        number = input.nextInt();
-        int faktor = 1;
-        for(int i = 1; i <= number ; i++ ){
-            faktor *= i;
+        System.out.print("N sayısını girin:  ");
+        numberN = input.nextInt();
+
+        System.out.print("R sayısını girin:  ");
+        numberR = input.nextInt();
+
+        // faktorN için
+
+        int faktorN = 1;
+        for(int i = 1; i <= numberN ; i++ ){
+            faktorN *= i;
         }
-        System.out.print(faktor);
+
+        // faktorR için
+
+        int faktorR = 1;
+        for(int i = 1; i <= numberR ; i++ ){
+            faktorR *= i;
+        }
+
+        // faktorNR için
+
+        int faktorNR = 1;
+        for(int i = 1; i <= (numberN-numberR) ; i++ ){
+            faktorNR *= i;
+        }
+        double result = faktorN/(faktorR*faktorNR);
+        System.out.print("C(n,r) " + numberN +"'in  " + numberR + "'li kombinasyonu :  ");
+        System.out.println((int)result);
     }
 }
